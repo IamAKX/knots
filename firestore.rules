@@ -1,0 +1,27 @@
+rules_version = '2';
+
+// Knots: no sign-up. The 8-letter wedding code is the shared secret.
+// Listing all weddings is blocked; only direct access by code works.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /weddings/{wid} {
+      allow get: if wid.size() >= 8;
+      allow create: if wid.size() >= 8
+        && request.resource.data.keys().hasOnly(['groomName', 'brideName', 'date', 'totalBudget', 'currency', 'city', 'createdAt'])
+        && request.resource.data.groomName is string && request.resource.data.groomName.size() < 60
+        && request.resource.data.brideName is string && request.resource.data.brideName.size() < 60;
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+        .hasOnly(['groomName', 'brideName', 'date', 'totalBudget', 'currency', 'city'])
+        && request.resource.data.groomName.size() < 60
+        && request.resource.data.brideName.size() < 60;
+      allow delete: if false;
+
+      match /{col}/{docId} {
+        allow read: if col in ['expenses', 'budget', 'tasks', 'purchases', 'guests', 'menu', 'gifts', 'vendors'];
+        allow create, update: if col in ['expenses', 'budget', 'tasks', 'purchases', 'guests', 'menu', 'gifts', 'vendors']
+          && request.resource.data.size() <= 30;
+        allow delete: if col in ['expenses', 'budget', 'tasks', 'purchases', 'guests', 'menu', 'gifts', 'vendors'];
+      }
+    }
+  }
+}
