@@ -23,7 +23,7 @@ Open **[knots-sonakash.web.app](https://knots-sonakash.web.app)**, choose **Join
 
 | Field | Value |
 |---|---|
-| Your name | anything you like (e.g. `Akash`) |
+| Your name | anything you like (e.g. `Bob`) |
 | Side | Groom or Bride |
 | **Wedding code** | **`TESTTEST`** |
 
@@ -104,7 +104,7 @@ Things to buy with estimated and actual prices. Tick items off as they're bought
 
 ## 🔐 How sharing works
 
-There's no sign-up. Creating a wedding generates an **8-letter code** made from the first four letters of each name (e.g. Sonal + Akash → `SONAAKAS`). If that code is taken, a number replaces the last letters. Your partner and family join with that code from the welcome screen, and you can find it again any time in **Settings**.
+There's no sign-up. Creating a wedding generates an **8-letter code** made from the first four letters of each name (e.g. Alice + Bob → `ALICBOBX`; names shorter than four letters are padded with random letters). If that code is taken, a number replaces the last letters. Your partner and family join with that code from the welcome screen, and you can find it again any time in **Settings**.
 
 Firestore security rules block listing weddings, so the code acts as the shared secret. Weddings can only be opened by exact code, and only the known sections can be read or written. (Firebase Auth isn't used because enabling it needs a billing account, and Knots runs on the free Spark plan.)
 

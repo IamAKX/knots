@@ -123,7 +123,7 @@ String _four(String name, Random r) {
 }
 
 /// 8 letters: first 4 of the bride's name + first 4 of the groom's name
-/// (e.g. Sonal + Akash -> SONAAKAS).
+/// (e.g. Alice + Bob -> ALICBOBX; short names are padded with random letters).
 String newCode(String bride, String groom) {
   final r = Random.secure();
   return _four(bride, r) + _four(groom, r);
@@ -145,7 +145,7 @@ class Repo {
     required String myName,
   }) async {
     // Keep the code unique and 8 characters: on a clash the number replaces
-    // the last letters (SONAAKAS -> SONAAKA1, SONAAKA2 ... SONAAK10).
+    // the last letters (ALICBOBX -> ALICBOB1, ALICBOB2 ... ALICBO10).
     final base = newCode(bride, groom);
     var id = base;
     for (var i = 1; (await _wref(id).get()).exists; i++) {

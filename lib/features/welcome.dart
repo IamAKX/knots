@@ -16,9 +16,9 @@ class _WelcomePageState extends ConsumerState<WelcomePage> {
   bool _busy = false;
   String? _err;
   String _side = 'groom';
-  final _me = TextEditingController(text: 'Akash');
-  final _groom = TextEditingController(text: 'Akash');
-  final _bride = TextEditingController(text: 'Sonal');
+  final _me = TextEditingController(text: 'Bob');
+  final _groom = TextEditingController(text: 'Bob');
+  final _bride = TextEditingController(text: 'Alice');
   final _budget = TextEditingController(text: '3000000');
   final _code = TextEditingController();
   DateTime _date = DateTime.now().add(const Duration(days: 120));
