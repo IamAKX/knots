@@ -162,5 +162,5 @@ firebase deploy --only firestore    # security rules + indexes
 ---
 
 <div align="center">
-Made with ❤️ for Akash &amp; Sonal
+Made with ❤️ from Sonal &amp; Akash
 </div>
