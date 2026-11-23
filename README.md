@@ -158,9 +158,3 @@ firebase deploy --only firestore    # security rules + indexes
 - **Colours, fonts, radii**: `lib/core/theme.dart`
 - **Sections and their fields**: `lib/features/modules.dart`
 - **Logo**: `KnotsMark` in `lib/features/welcome.dart`; PWA icons in `web/icons/`
-
----
-
-<div align="center">
-Made with ❤️ from Sonal &amp; Akash
-</div>
